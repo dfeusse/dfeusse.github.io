@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <!-- tells IE to use Google Chrome Frame if installed -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title> dashboard 02 - week 02 </title>
+	    <script type="text/javascript" src="../../roark/d3/d3.v3.min.js"></script>
+	    <script type="text/javascript" src="../../roark/Caged-d3-tip/d3.tip.min.js"></script>
+	    <script type="text/javascript" src="../../roark/js/moment.min.js"></script>
+        <script type="text/javascript" src="../../roark/js/colorbrewer.js"></script>
+	    <!-- map js requirements 
+	    <script type="text/javascript" src="../d3.geo.js"></script> -->
+	    <!-- Bootstrap  CSS -->
+	    <link href="../../roark/bootstrap-3.0/css/bootstrap.css" rel="stylesheet">
+	    <!-- My stylesheets -->
+	    <link href="style_html.css" rel="stylesheet">
+	    <link href="style_vis.css" rel="stylesheet">
+
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="../../assets/js/html5shiv.js"></script>
+	      <script src="../../assets/js/respond.min.js"></script>
+	    <![endif]-->
+  	</head>
+  	<body>
+  		<!-- 
+    If IE8 or below then d3 will not work.  
+    Using the meta tag <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      to attempt to use Google Chrome Frame if installed.
+    If not then if IE8 or below prompt to install Chrome Frame add-on (IE9 and above will run d3 fine).
+  -->
+  <!--[if lte IE 8]>
+  <script>
+    if (navigator.userAgent.indexOf("x64") != -1)
+    {
+      document.body.style.margin = 30;
+      document.write('<h1>Page not available in this browser :-(</h1><p>Unfortunately 
+      this page requires IE9 or above to display.</p><p>You can view this page correctly 
+      in Google Chrome, Firefox, Opera, Safari or any other standards compliant browser.</p>
+      <p>An alternative is to use the Google Chrome Frame Add-On but this only works with the 
+      32-bit version of Internet Explorer and you are currently using a 64-bit version.</p>');
+    }
+    else
+    {
+      alert('Unfortunately this page requires IE9 or above to display.\n\n
+      You can view this page correctly in Google Chrome, Firefox, Opera, Safari 
+      or any other standards compliant browser.\n\n
+      Alternatively you can install the Google Chrome Frame Add-On into your 
+      current version of Internet Explorer (32-bit only) by following these steps...');
+    }
+  </script>
+  <script type="text/javascript" 
+     src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+  <style>
+    .chromeFrameInstallDefaultStyle {
+      width: 100%; /* default is 800px */
+      border: 5px solid blue;
+    }
+  </style>
+
+  <div id="prompt"></div>
+
+  <script>
+    if (navigator.userAgent.indexOf("x64") == -1)
+    {
+      window.attachEvent("onload", function() {
+        CFInstall.check({
+          mode: "inline", // the default
+          node: "prompt"
+        });
+      });
+    }
+  </script>
+  <![endif]-->
+  		<div class="container">
+  		
+  			<div class="main-title-container">
+    			<span class="main-title"> analytics dashboard </span>
+    		</div>
+
+    		<div class ="vis-title-container">
+    			<span class="header"> total visits </span>
+    		</div>
+
+    		<div id="totalVisitsBrushChart"></div>
+
+            
+            <span class="header"> user actions </span>
+            <div id="timelineChart"></div>
+
+    		<div class="buttons">
+    			<button type="button" class="btn btn-default" id="button_1m">1m</button>
+    			<button type="button" class="btn btn-default" id="button_3m">3m</button>
+    			<button type="button" class="btn btn-default" id="button_max">max</button>
+  			</div>
+
+  		</div>
+
+  	<!-- JavaScript
+    ================================================== -->
+    <script src="totalVisits/totalVisitsBrush.js"></script>
+  	</body>
+</html>

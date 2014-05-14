@@ -1,0 +1,60 @@
+body {
+    /*
+    background-color: yellow;
+    font-family: Segoe UI;
+    */
+    font-size: 0.9em;
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+p {
+    margin-bottom:50px;
+}
+p.header {
+    font-size: 26px;
+}
+.centre {
+    width: 990px;
+    margin: 0px auto;
+}
+
+table.dc-data-table.dc-chart {
+    width: 990px;
+    margin: 0px auto;
+    /* margin-top: 50px; */
+    font-size: 0.9em;
+}
+
+/*
+.dc-data-table thead td {
+    background-color: white;
+    color: grey;
+    text-decoration:underline;
+    font-weight: normal;
+}
+*/
+
+/*
+.dc-data-table td.row:hover {
+    background-color:red;
+}
+*/
+a {
+    color: #3182bd;
+}
+.content {
+    width: 990px;
+    margin: 0 auto;
+    border-top: 0px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.clear {
+    clear: both;
+}
+p#insights {
+    margin-bottom: 50px;
+}
+.footer {
+    margin-top: 0px;
+}

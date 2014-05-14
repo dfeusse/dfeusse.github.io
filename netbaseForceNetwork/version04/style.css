@@ -1,0 +1,82 @@
+body {
+	/* background: #999999; */
+	background: #737373;
+}
+.link {
+	stroke: #D3D3D3;
+	/*
+	stroke: white;
+	
+	stroke: #c0c0c0;
+	stroke:; #262626;
+	stroke: white;
+	stroke-opacity: .7;
+	*/
+}
+
+text.nodelabels {
+  font: 11px sans-serif;
+  pointer-events: none;
+  font-weight:bold;
+}
+
+.d3-tip {
+	line-height: 1;
+	font-weight: bold;
+	padding: 12px;
+	background: rgba(0, 0, 0, 0.8);
+	/* color: #fff; */
+	/*color: #d71028;*/
+	/* color: #8a8989; */
+	color: #808080;
+	border-radius: 2px;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.d3-tip span {
+    /* color: #ff00c7; */
+    /* color: #d71028; */
+    color: #fff;
+}
+
+.btn {
+	margin-left: 5px;
+	margin-top: 5px;
+}
+/*
+#sidebar {
+  float: right;
+  width: 100px;
+  margin-right: 300px;
+}
+*/
+#sidebar {
+	width: 100px;
+	margin-top: 10px;
+	margin-left:50px;
+}
+
+/*arrows*/
+path.arrowpath {
+  fill: none;
+  /* stroke: #666; */
+  stroke: #D3D3D3;
+  stroke-width: 1.5px;
+}

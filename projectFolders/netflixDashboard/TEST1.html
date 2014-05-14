@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <title>Microsoft Descriptive Report - SF Analytics</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <meta charset="UTF-8">
+    <!-- JS files -->
+    <script src="d3.v2.js" type="text/javascript"></script>
+    <script src="crossfilter.v1.js" type="text/javascript"></script>
+    <script src="dc.js_master/dc.js" type="text/javascript"></script>
+    <script src='highlighter/shCore.js' type='text/javascript'></script>
+    <script src="highlighter/shAutoloader.js" type="text/javascript"></script>
+    <script src='highlighter/shBrushJScript.js' type='text/javascript'></script>
+    <script src='highlighter/shBrushXml.js' type='text/javascript'></script>
+    
+    <link href='highlighter/shCore.css' rel='stylesheet' type='text/css'/>
+    <link href='highlighter/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+    <!-- bootstrap files --> <!-- CSS files -->
+    <!-- 
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="dc.css" rel="stylesheet" type="text/css"/> 
+    <link href="index.css" rel="stylesheet" type="text/css"/> 
+    -->
+
+    <link href="TEST1.css" rel="stylesheet">
+    
+    <style>
+        /* place custom style in index.css */
+        /* Bootstrap, custom container */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        .container > hr {
+            margin: 60px 0;
+        }
+        /* Bootstrap, customize the navbar links to be fill the entire space of the .navbar */
+        .navbar .navbar-inner {
+            padding: 0;
+        }
+        .navbar .nav {
+            margin: 0;
+            display: table;
+            width: 100%;
+        }
+        .navbar .nav li {
+            display: table-cell;
+            width: 1%;
+            float: none;
+        }
+        .navbar .nav li a {
+            font-weight: bold;
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,.75);
+            border-right: 1px solid rgba(0,0,0,.1);
+        }
+        .navbar .nav li:first-child a {
+            border-left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .navbar .nav li:last-child a {
+            border-right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+        #postsXF {
+            font-size: 60px;
+            margin-top: 50px;
+            } 
+        #kloutXF, #followersXF, #staticPostsXF, #positiveDynamicXF, #negativeDynamicXF, #neutralDynamicXF {
+            font-size: 40px;
+        }
+        #contentRow {
+            border: 1px solid;
+            border-color: black;
+            background-color: #f3f3f3;
+        }
+        /*
+        .left {
+            float:left;
+        }
+        .right {
+            position: relative;
+        }
+        */
+        .sentimentData {
+            margin-right: 40px;
+        }
+        .postsHeader {
+            margin-right: auto;
+            margin-left: auto;
+            width: 20%;
+        }
+        .sentimentHeader {
+            margin-right: auto;
+            margin-left: auto;
+            width: 55%;
+        }
+        .followersHeader {
+            margin-right: auto;
+            margin-left: auto;
+            width: 50%;
+        }
+        .kloutHeader {
+            margin-right: auto;
+            margin-left: auto;
+            width: 40%;
+        }
+        .mainPostsChart {
+            margin: 0px auto 0px auto;
+            width: 50%;
+            margin-left: 100px;
+        }
+        .right {
+            margin-left: 300px;
+        }
+        .followerGraph {
+            margin-left: 55px;
+        }
+        .kloutGraph {
+            margin-left: 55px;
+        }
+        /* SPACING */
+
+
+
+    </style>
+</head>
+    <div class="container"> <!-- main container -->
+
+        <div id="netflixTextHeader">
+            <h1>Netflix</h1>
+            <h2 class="muted">2013</h2>
+            <div id="netflixN"></div>
+        </div>
+
+        <hr>
+
+        <div id="box_1">
+            <div id="box_2"><img src="assets/img/N_red.png" alt="some_text" style="width:60px;height:90px"></div>
+        </div>
+        <div id="box_3"></div>
+
+        <hr>
+
+   
+        <div class="block pink"> <h1> hello </h1> </div>
+        <div class="block blue"></div>
+        <div class="block green"></div>
+    
+    
+<!--
+    <div>
+        <div class="pone steelblue"> <h1> hello </h1> </div>
+        <div class="pone grey"></div>
+    <div>
+  -->  
+
+     <!--   
+        <div class="row-fluid" id="contentRow">
+
+            <div class="postsHeader">
+                <img src="assets/img/postsBlack2.png" alt="some_text">
+                <span id="staticPostsXF"></span>
+                <span id="postsXF"></span>
+            </div>
+
+            <div id="date-chart" class="mainPostsChart">
+                <span>Timeline of tweets</span> 
+                <a class="reset" href="javascript:dateChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        
+
+  
+
+        <div class="row-fluid" id="contentRow">
+            <div class="sentimentHeader">
+                <img src="assets/img/positiveBlack.png" alt="some_text">
+                <span id="positiveStaticXF"></span><span id="positiveDynamicXF" class="sentimentData"></span> 
+                <img src="assets/img/negativeBlack.png" alt="some_text">
+                <span id="negativeStaticXF"></span><span id="negativeDynamicXF" class="sentimentData"></span>
+                <img src="assets/img/neutralBlack.png" alt="some_text">
+                <span id="neutralStaticXF"></span><span id="neutralDynamicXF" class="sentimentData"></span>
+            
+            </div>
+
+            <div id="sentiment-chart" class="right">
+                <span>Sentiment</span>
+                <a class="reset" href="javascript:sentimentChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                <div class="clear"></div>
+                <div id="filtered-sentiment"></div>
+            </div>
+        </div>
+
+       
+    <div class="row-fluid">
+    <div class="span12">
+    <div class="row-fluid">
+        <div class="span6" id="contentRow"> 
+       
+                <div class="followersHeader">
+                    <img src="assets/img/userBlack.png" alt="some_text">
+                    <span id="followersXF"></span>
+                </div>
+
+                <div id="follower-chart" class="followerGraph">
+                    <span>Followers</span>
+                    <a class="reset" href="javascript:followerChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                    <div class="clear"></div>
+                    <div id="filtered-follower"></div>
+                </div>
+
+        </div>
+        <div class="span6" id="contentRow">
+
+                <div class="kloutHeader">
+                    <img src="assets/img/kloutBlack.png" alt="some_text">
+                    <span id="kloutXF"></span>
+                </div>
+            
+
+                <div id="klout-chart" class="kloutGraph">
+                    <span>Klout</span>
+                    <a class="reset" href="javascript:kloutChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                    <div class="clear"></div>
+                    <div id="filtered-klout"></div>
+                </div>  
+        </div>
+    </div>
+    </div>
+    </div>
+    
+
+        <div class="dc-data-count">
+            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | 
+            <a href="javascript:dc.filterAll(); dc.renderAll(); dc.redrawAll();" style="color: rgb(164,0,29)"><b>Reset All</b></a>
+            <div class="clear"></div>
+        </div>
+
+        <h2>Tweet list</h2>
+-->
+
+
+
+    </div> <!-- end of, div class="content", originated immediately after body -->
+    
+
+
+    <!-- Bootstrap files -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap-transition.js"></script>
+    <script src="bootstrap/js/bootstrap-alert.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="bootstrap/js/bootstrap-tab.js"></script>
+    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="bootstrap/js/bootstrap-popover.js"></script>
+    <script src="bootstrap/js/bootstrap-button.js"></script>
+    <script src="bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+
+</body>
+</html>

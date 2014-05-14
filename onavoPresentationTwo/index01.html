@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!-- <script type="text/javascript" src="../microsoftInternalReport_Oct2012/d3.v2.js"></script> 
+    	<script type="text/javascript" src="../microsoftInternalReport_Oct2012/d3.layout.js"></script>
+    	<script type="text/javascript" src="../microsoftInternalReport_Oct2012/jquery-1.6.2.min.js"></script> 
+	  	<script type="text/javascript" src="../microsoftInternalReport_Oct2012/jquery.tipsy.js"></script>
+	  	<script type="text/javascript" src="../microsoftInternalReport_Oct2012/d3.geo.js"></script> -->
+	  	<script type="text/javascript" src="jquery.js"></script>
+	  	<script src="http://d3js.org/d3.v2.min.js"></script>
+		<script type="text/javascript" src="d3.tip.js"></script>
+		<script type="text/javascript" src="jquery.tipsy.js"></script>
+		<script type="text/javascript" src="d3.layout.js"></script>
+
+
+    <script type="text/javascript" src="d3.layout.js"></script>
+		<!-- <script type="text/javascript" src="d32.js"></script> -->
+
+		<link rel="stylesheet" href="tipsy.css">
+		<link rel="stylesheet" href="style.css">
+
+		<title> Onavo Presentation </title>
+
+		<link rel="shortcut icon" href="favicon.ico"> 
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal.js-master/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js-master/css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-master/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js-master/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			.reveal section img {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h2>Usage in the Radio App Market</h2>
+					<br>
+					<h4>Daniel Feusse</h3>
+					<!-- <p>
+						<small> Created by R/GA SF </small>
+					</p> -->
+				</section>
+
+				<section>
+					<h4>Competitor Overview, Usage Data</h4>
+					<span id="emma">node size = selected variable. node color = other variable</span>
+					<!-- <h6>node size = selected metric<br> node color = opposite metric</h6> -->
+					<div id="buttons"></div>
+					<div id="circle_visual"></div>
+				</section>
+
+				<section>
+					<h3>Pandora and Shazam Dominate the Market</h3>
+					<ul>
+						<li>
+							Almost three quarters of users in market are actively using two apps, Pandora (46%) or Shazam (26%)
+						</li>
+						<li>
+							Both iHeartRadio & TuneIn have 9% of the market's overall userbase
+						</li> 
+						<li>No remaining app in market have above 4% MAU</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>DPM, Much Lower Variance</h3>
+					<ul>
+						<li>
+							TuneIn is the clear leader having over 9.1 DPM
+						</li>
+						<li>
+							Stitcher and Pandora form the next cluster, both have around 7 DPM 
+						</li> 
+						<li>
+							iHeartRadio has just under 6 DPM
+						</li>
+						<li>
+							The rest of the market is between 3.75 - 4 DPM
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Entire Market, Average Usage</h4>
+					<h4>MAU, average</h4>
+						<img src="MAUavg.png" alt="tweets">
+					<h6>DPM, average</h6>
+						<img src="DPMavg.png" alt="tweets">
+				</section>
+
+				<section>
+					<h4>Difference of Averages</h4>
+					<div id='slopegraph'></div>
+  					<script src='slopegraph.js'></script>
+				</section>
+
+				<section>
+					<h3>Spotify?</h3>
+					<ul>
+						<li>
+							Free streaming usage vs Pandora?
+						</li>
+						<li>
+							Radio usage vs Pandora?
+						</li>
+						<li>
+							Premium vs free? 
+						</li> 
+						<li>
+							Social aspect?
+						</li>
+					</ul>
+					<!--
+					<p>Pandora (46%) and Shazam (26%) comprise of 72% of total avg MAUs</p>
+					<p>iHeartRadio & TuneIn each are 9%, none above 4%</p>
+					<p>TuneIn had the highest DPM of all</p>
+					-->
+				</section>			
+
+				
+
+		
+
+
+			
+			</div>
+
+		</div>
+
+		<script src="reveal.js-master/lib/js/head.min.js"></script>
+		<script src="reveal.js-master/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js-master/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js-master/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-master/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+		<script src="node_visual.js" type="text/javascript"></script> 
+		<script src="ufo.js" type="text/javascript"></script> 
+		<script src="slopegraph.js" type="text/javascript"></script> 
+		<!-- <script src="barHierarchal2.js" type="text/javascript"></script> -->
+		<!-- <script src="map.js" type="text/javascript"></script> -->
+
+	</body>
+</html>

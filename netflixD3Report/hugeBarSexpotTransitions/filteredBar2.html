@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+
+  <!-- <link rel="stylesheet" type="text/css" href="../../../../roark/tooltipster-master/css/tooltipster.css" /> -->
+  <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+  <!-- <script type="text/javascript" src="../../../../roark/tooltipster-master/js/jquery.tooltipster.min.js"></script> -->
+  <script src="../../roark/d3/d3.v3.min.js"></script>
+  <link href="filteredBar.css" rel="stylesheet">
+  <style></style>
+
+  <script>
+      $('body').ready(function() {
+          $('.bar').tooltipster();
+      });
+      $('body').ready(function() {
+          $('.tooltip').tooltipster();
+      });
+  </script>
+
+</head>
+<body>
+  <div class="header">
+      <h1> Impression </h1>
+  </div>
+  <div id="chartContainer"></div>
+  <div class="metricFilter">
+
+      <form>
+
+        <input type="radio" name="metric" value="awareness" id="metricSelector" class="radioFilter">Awareness<br>
+
+        <input type="radio" name="metric" value="impression" id="metricSelector" class="radioFilter" checked>Impression<br>
+
+        <input type="radio" name="metric" value="consideration" id="metricSelector" class="radioFilter">Consideration<br>
+
+        <input type="radio" name="metric" value="recommend" id="metricSelector" class="radioFilter">Recommend<br> 
+
+        <input type="radio" name="metric" value="value" id="metricSelector" class="radioFilter">Value<br>
+
+        <input type="radio" name="metric" value="adAwareness" id="metricSelector" class="radioFilter">Ad Awareness<br>
+
+        <input type="radio" name="metric" value="womExposure" id="metricSelector" class="radioFilter">WOM Exposure<br>
+
+        <input type="radio" name="metric" value="purchaseIntent" id="metricSelector" class="radioFilter">Purchase Intent<br>
+
+        <input type="radio" name="metric" value="currentCustomer" id="metricSelector" class="radioFilter">Current Customer<br>
+
+      </form>
+
+    </div>
+
+<script src="filteredBar2.js" type="text/javascript"></script> 
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<link rel="shortcut icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <script src="../roark/d3/d3.v3.min.js"></script>
+    <script type="text/javascript" src="hugeBarSexpotTransitions/jquery-1.8.0.min.js"></script>
+    <!-- Le styles -->
+    <link href="../roark/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- <link href="hugeBarSexpotTransitions/filteredBar.css" rel="stylesheet"> -->
+    <link href="../roark/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css"></style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+  	</head>
+
+  	<body>
+
+    <div class="container-narrow">
+    	<!--
+	    <div class="masthead">
+	    	<h3>Netflix Report PONE</h3>
+	    </div>
+		-->
+	<div class="row-fluid">
+        <div class="block pink"> 
+            <p class="header">Netlix Social Report</p> 
+            <span class="date">week of 2013-Jul-07</span>
+        </div>
+        <div class="block blue">   
+            <div class="netflixlogo">
+                <img src="N_red2.png" alt="Netflix Logo" style="width:40px;height:60px">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row-fluid">
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+	          	<span class="tile_header">Posts</span>
+	          	<span class="percent_change">+10%</span>
+	        </div>
+	        <div id="middle" class="tile">
+	        	<span class="week_data">
+	        		27,894
+	        	</span>
+	        	<br>
+	        	<span>
+	        		10
+	        	</span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span class="total_data">
+	        		1,564,286
+	        	</span>
+	        </div>
+        </div>
+
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+          		<span class="tile_header">Impressions</span>
+          		<span class="percent_change">-7%</span>
+          	</div>
+          	<div id="middle" class="tile">
+          		<span></span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span></span>
+	        </div>
+        </div>
+
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+        		<span class="tile_header">Passion</span>
+          		<span class="percent_change">-2%</span>
+          	</div>
+          	<div id="middle" class="tile">
+	        	<span></span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span></span>
+	        </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+	          	<span class="tile_header">Positive</span>
+	          	<span class="percent_change">+4%</span>
+	        </div>
+	        <div id="middle" class="tile">
+	        	<span></span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span></span>
+	        </div>
+        </div>
+
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+          		<span class="tile_header">Negative</span>
+          		<span class="percent_change">+5%</span>
+          	</div>
+          	<div id="middle" class="tile">
+	        	<span></span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span></span>
+	        </div>
+        </div>
+
+        <div class="span4" id="data_tile">
+        	<div id="top" class="tile">
+        		<span class="tile_header">Net Sentiment</span>
+          		<span class="percent_change">+4%</span>
+          	</div>
+          	<div id="middle" class="tile">
+	        	<span></span>
+	        </div>
+	        <div id="bottom" class="tile">
+	        	<span></span>
+	        </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="overview_tile">
+        	<!--<div>
+	          	<span class="tile_header">Overview</span>
+	        </div>
+
+	        <br> -->
+
+	        <div id="chartContainer"></div>
+	        <div class="metricFilter">
+      			<form>
+			        <input type="radio" name="metric" value="awareness" id="metricSelector" class="radioFilter">Awareness<br>
+
+			        <input type="radio" name="metric" value="impression" id="metricSelector" class="radioFilter" checked>Impression<br>
+
+			        <input type="radio" name="metric" value="consideration" id="metricSelector" class="radioFilter">Consideration<br>
+
+			        <input type="radio" name="metric" value="recommend" id="metricSelector" class="radioFilter">Recommend<br> 
+
+			        <input type="radio" name="metric" value="value" id="metricSelector" class="radioFilter">Value<br>
+
+			        <input type="radio" name="metric" value="adAwareness" id="metricSelector" class="radioFilter">Ad Awareness<br>
+
+			        <input type="radio" name="metric" value="womExposure" id="metricSelector" class="radioFilter">WOM Exposure<br>
+
+			        <input type="radio" name="metric" value="purchaseIntent" id="metricSelector" class="radioFilter">Purchase Intent<br>
+
+			        <input type="radio" name="metric" value="currentCustomer" id="metricSelector" class="radioFilter">Current Customer<br>
+      			</form>
+    		</div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="table_tile">
+        	<div>
+	          	<!-- <span class="tile_header">Who & What</span> -->
+	          	<ul class="nav nav-pills">
+	  				<li class="active lead"><a href="index.html" style:"margin-left:5px">Who</a></li>
+	  				<li class="lead"><a href="#">What</a></li>
+				</ul>
+	        </div>
+
+	        <div> 	
+		
+	<table cellpadding="0" cellspacing="0" border="0" class="table" id="who_table">
+	<!--
+		<div>
+			<h2>Table</h2>
+			<table>-->
+				<thead>
+					<tr>
+						<th>Creative</th>
+						<th>Impressions</th>
+						<th>Impression (rect)</th>
+						<th>First day</th>
+						<th style="width:20%">Trend</th>
+						<th>Last day</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Birds</td>
+						<td>36,271,281</td>
+						<td>
+							<div id="rectAB"></div>   
+						</td>
+						<td>409,243</td>
+						<td>   
+							<div id="sparklineAB"></div>
+						</td>
+						<td>311,762</td>
+					</tr>
+					<tr>
+						<td>Artist</td>
+						<td>36,224,344</td>
+						<td>
+							<div id="rectArtist"></div>   
+						</td>
+						<td>405,123</td>
+						<td>   
+							<div id="sparklineArtist"></div>
+						</td>
+						<td>305,989</td>
+					</tr>
+					<tr>
+						<td>People</td>
+						<td>26,116,516</td>
+						<td>   
+							<div id="rectPeople"></div> 
+						</td>
+						<td>1,856,910</td>
+						<td>   
+							<div id="sparklinePeople"></div>
+						</td>
+						<td>1,293,511</td>
+					</tr>
+					<tr>
+						<td>Work</td>
+						<td>26,002,725</td>
+						<td>   
+							<div id="rectWork"></div> 
+						</td>
+						<td>1,777,689</td>
+						<td>   
+							<div id="sparklineWork"></div>
+						</td>
+						<td>1,295,050</td>
+					</tr>
+					<tr>
+						<td>:15 PC</td>
+						<td>36,936</td>
+						<td>   
+							<div id="rect15PC"></div> 
+						</td>
+						<td>3,554</td>
+						<td>   
+							<div id="sparkline15PC"></div>
+						</td>
+						<td>6,302</td>
+					</tr>
+					<tr>
+						<td>:15 Artist</td>
+						<td>32,215</td>
+						<td>   
+							<div id="rect15Artist"></div> 
+						</td>
+						<td>3,031</td>
+						<td>   
+							<div id="sparkline15Artist"></div>
+						</td>
+						<td>6,178</td>
+					</tr>
+							
+				</tbody>
+			</table>
+
+		
+	        </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="usStates_tile">
+        	<div>
+	          	<span class="tile_header">Where</span>
+	        </div>
+
+	        <div id="states_visual"></div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="usStates_tile">
+        	<div>
+	          	<span class="tile_header">When</span>
+	        </div>
+
+	        <div id='energychart'></div>
+	        
+        </div>
+    </div>
+
+<!--
+    <div class="row-fluid marketing">
+        <div class="span6">
+          	<h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+  -->
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Feusse 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <script src="states_visual.js"></script>
+    <script src="circularHeatChart.js"></script>
+    <script src="example.js"></script>
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../roark/bootstrap/js/jquery.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-button.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-typeahead.js"></script>
+
+    <!-- table javascript -->
+	<script src="js/table/sparklineAngrybirds.js" type="text/javascript"></script>
+	<script src="js/table/sparklineArtist.js" type="text/javascript"></script>
+	<script src="js/table/sparklinePeople.js" type="text/javascript"></script>
+	<script src="js/table/sparklineWork.js" type="text/javascript"></script>
+	<script src="js/table/sparkline15PC.js" type="text/javascript"></script>
+	<script src="js/table/sparkline15Artist.js" type="text/javascript"></script>
+	<script src="js/table/rectAngrybirds.js" type="text/javascript"></script>
+	<script src="js/table/rectArtist.js" type="text/javascript"></script>
+	<script src="js/table/rectPeople.js" type="text/javascript"></script>
+	<script src="js/table/rectWork.js" type="text/javascript"></script>
+	<script src="js/table/rect15PC.js" type="text/javascript"></script>
+	<script src="js/table/rect15Artist.js" type="text/javascript"></script>
+
+<script src="hugeBarSexpotTransitions/filteredBar2.js" type="text/javascript"></script>
+
+</body>
+</html>

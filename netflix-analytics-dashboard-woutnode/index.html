@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<link rel="shortcut icon" href="./images/favicon.ico">
+    <meta charset="utf-8">
+    <title>R/GA &middot; SF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="./javascript/d3.v3.min.js"></script>
+    <script src="./javascript/jquery.min.js"></script>
+    <script src="./javascript/d3.tip.js"></script>
+    <!-- style sheetss -->
+    <link href="./bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="./stylesheets/style.css" rel="stylesheet">
+    <link href="./bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css"></style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+  	</head>
+
+  	<body>
+
+    <div class="container-narrow">
+    	<!--
+	    <div class="masthead">
+	    	<h3>Netflix Report PONE</h3>
+	    </div>
+		-->
+	<div class="row-fluid">
+        <div class="block pink"> 
+            <p class="header">Netflix Social Report</p> 
+            <span class="date">week of 2013-Jul-14</span>
+        </div>
+        <div class="block blue">   
+            <div class="netflixlogo">
+                <img src="./images/rga2.jpg" alt="Netflix Logo">
+            </div>
+        </div>
+    </div>
+
+    <br>
+        
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Overview</a></li>
+        <li><a href="./facebook.html">Facebook</a></li>
+    </ul>
+<!--
+    <div class="row-fluid">
+        <div class="btn-group pull-right">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">Other countries <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+        </div>
+    </div>
+-->
+    <div class="row-fluid">
+        <div class="span4" id="post_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Posts</span>
+                <span class="posts_percent_change"></span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="posts_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="posts_total_data"></span><br> 
+                    <span class="total_data_label">year total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4" id="impression_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Impressions</span>
+                <span class="impressions_percent_change">-7%</span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="impressions_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="impressions_total_data"></span><br> 
+                    <span class="total_data_label">year total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4" id="passion_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Passion</span>
+                <span class="passion_percent_change">-2%</span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="passion_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="passion_total_data"></span><br> 
+                    <span class="total_data_label">year average</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4" id="positive_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Positive</span>
+                <span class="positive_percent_change">+4%</span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="positive_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="positive_total_data"></span><br> 
+                    <span class="total_data_label">year total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4" id="negative_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Negative</span>
+                <span class="negative_percent_change">+5%</span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="negative_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="negative_total_data"></span><br> 
+                    <span class="total_data_label">year total</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4" id="netsentiment_data_tile">
+            <div id="top" class="tile">
+                <span class="tile_header">Net Sentiment</span>
+                <span class="netsentiment_percent_change">+4%</span>
+            </div>
+            <div id="middle" class="tile">
+                <div class="poney">
+                    <div class="tx">
+                    <span class="netsentiment_week_data"></span><br> 
+                    <span class="data_label">weekly total</span>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="tile">
+                <div class="baloney">
+                    <div class="tx">
+                    <span class="netsentiment_total_data"></span><br> 
+                    <span class="total_data_label">year average</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div id="overview_tile">
+		    <div class="span12">
+		        <div class="metricFilter">
+	      			<form>
+				        <input type="radio" name="metric" value="posts" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px" checked><span class="radio_label">Posts</span>
+
+		                <input type="radio" name="metric" value="impressions" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px"><span class="radio_label">Impressions</span>
+
+		                <input type="radio" name="metric" value="passion" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px"><span class="radio_label">Passion</span>
+
+		                <input type="radio" name="metric" value="positive" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px"><span class="radio_label">Positive Sentiment</span>
+
+		                <input type="radio" name="metric" value="negative" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px"><span class="radio_label">Negative Sentiment</span>
+
+		                <input type="radio" name="metric" value="net" id="metricSelector" class="radioFilter" style="vertical-align: middle; margin-top:-1px"><span class="radio_label">Net Sentiment</span>
+	      			</form>
+	    		</div>
+	    	</div>
+	    	<div class="span12">
+		    	<div class="title_eachbar">
+	                <p class="title_eachbar_text"></p>
+	            </div>
+		        <div id="chartContainer"></div>
+		    </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="usStates_tile">
+        	<div>
+	          	<span class="tile_header">Where</span>
+	        </div>
+
+	        <div id="states_visual"></div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12" id="usStates_tile">
+        	<div>
+	          	<span class="tile_header">When</span>
+	        </div>
+
+	        <div id='energychart'></div>
+	        
+        </div>
+    </div>
+
+<!--
+    <div class="row-fluid marketing">
+        <div class="span6">
+          	<h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+  -->
+
+    <footer class="footer">
+        <div class="row-fluid">
+            <div class="span12">
+                <table class="table table-bordered">
+                    <tr>
+                        <td id="stophover"><img src = "./images/RGA.png" height = "20px" width ="50px"/>© 2013 R/GA Analytics San Francsico, Daniel Feusse</td>
+                        <td id="stophover2"><a href="http://rga.com/about/departments/analytics/" class="center">About Us</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </footer>
+
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <script src="./d3visuals/states_visual.js"></script>
+    <script src="./d3visuals/circularHeatChart.js"></script>
+    <script src="./d3visuals/example.js"></script>
+    <script src="./d3visuals/Netbase_myBars_newTransition.js" type="text/javascript"></script>
+    
+    <!-- Placed at the end of the document so the pages load faster 
+    <script src="../roark/bootstrap/js/jquery.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-button.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../roark/bootstrap/js/bootstrap-typeahead.js"></script> -->
+
+	
+<!--<script src="hugeBarSexpotTransitions/filteredBar2.js" type="text/javascript"></script>-->
+
+
+</body>
+</html>

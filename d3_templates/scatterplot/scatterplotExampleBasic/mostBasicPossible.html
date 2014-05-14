@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trust and Business</title>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		  opacity: 1;
+		}
+		.axis text { 
+			font-size:10px; 
+		}
+		body { 
+			font: 12px sans-serif; 
+		}
+		.circles { 
+			opacity: .5; 
+		}
+		.guide line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		  opacity: 0;
+		}
+</style>
+</head>
+	<body>
+		<div id="chart">
+
+<script type="text/javascript">
+	// set the stage
+	var margin = {top:30, right:20, bottom:20, left:40},
+		width = 600 - margin.left - margin.right,
+		height = 500 - margin.top - margin.bottom,
+		x = d3.scale.linear().range([0, width]),
+		y = d3.scale.linear().range([height - 60, 0]),
+		color = d3.scale.category10();
+
+	var svg = d3.select("#chart").append("svg")
+		.attr({
+			height: height + margin.top + margin.bottom,
+			width: width + margin.left + margin.right
+		});
+
+	// set axes, as well as details on their ticks
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.ticks(20)
+		.tickSubdivide(true)
+		.tickSize(6,3,0)
+		.orient("bottom");
+
+	var yAxis = d3.svg.axis()
+		.scale(y)
+		.ticks(20)
+		.tickSubdivide(true)
+		.tickSize(6,3,0)
+		.orient("left");
+
+	// group that will contain all of the plots
+	var groups = svg.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+	// array of the regions, used for the legend
+	var regions = ["Asia", "Europe", "Middle East", "N. America", "S. America", "Sub-Saharan Africa"];
+
+// bring in the data, and do everything that is data-driven
+d3.csv("trust-business.csv", function(data) {
+	console.log(data)
+
+	// sort data alphabetically by region, so that the colors match with legend
+	data.sort(function(a, b) { return d3.ascending(a.region, b.region); })
+	console.log(data)
+
+	var x0 = Math.max(-d3.min(data, function(d) { return d.trust; }), d3.max(data, function(d) { return d.trust; }));
+	x.domain([-100, 100]);
+	y.domain([180, 0])
+
+	// style the circles, set their locations based on data
+	var circles = groups.selectAll("circle")
+		.data(data)
+		.enter()
+		.append("circle")
+		.attr("class", "circles")
+		.attr({
+			cx: function(d) { return x(+d.trust); },
+			cy: function(d) { return y(+d.business); },
+			r: 8,
+			id: function(d) { return d.country; }
+		});
+
+	// what to do when we mouse over a bubble
+
+
+	// transition to increase size/opacity of bubble
+
+
+		// append lines to bubbles that will be used to show the precise data points.
+		// translate their location based on margins
+		
+
+
+	// function to move mouseover item to front of SVG stage, in case
+	// another bubble overlaps it
+
+
+	// skip this functionality for IE9, which doesn't like it
+
+	// what happens when we leave a bubble?
+
+
+		// go back to original size and opacity
+
+
+		// fade out guide lines, then remove them
+
+
+	// run the mouseon/out functions
+
+
+	// tooltips (using jQuery plugin tipsy)
+
+
+
+
+	// the legend color guide
+
+
+
+	// legend labels	
+
+
+	// draw axes and axis labels
+
+	});
+
+</script>
+
+		</div>
+	</body>
+</html>

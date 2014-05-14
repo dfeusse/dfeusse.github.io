@@ -1,0 +1,1 @@
+var bookApp = angular.module("switchableGrid", ['ngResource']);

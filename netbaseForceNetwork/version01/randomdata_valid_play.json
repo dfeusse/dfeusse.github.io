@@ -1,0 +1,31 @@
+{
+	"nodes": [
+		{"name":"Bates Motel","group":11,"mentions":52308},
+		{"name":"Longmire","group":11,"mentions":91515},
+		{"name":"Duck Dynasty","group":11,"mentions":87886},
+		{"name":"Storage Wars","group":11,"mentions":69973},
+		{"name":"Dancing With the Stars","group":12,"mentions":25257},
+		{"name":"Modern Family","group":12,"mentions":62207},
+		{"name":"Once Upon a Time in Wonderland","group":12,"mentions":13284},
+		{"name":"Suburgatory","group":12,"mentions":47098},
+		{"name":"How I met Your Mother","group":13,"mentions":36990},
+		{"name":"Big Bang Theory","group":13,"mentions":8742},
+		{"name":"Person of Interest","group":13,"mentions":29858},
+		{"name":"The Amazing Race","group":13,"mentions":19204},
+		{"name":"The Good Wife","group":13,"mentions":89557},
+		{"name":"Danon","group":2,"mentions":7643},
+		{"name":"Yogurt","group":3,"mentions":67028},
+		{"name":"Subaru","group":2,"mentions":90273}
+	],
+	"links": [
+		{"source":1,"target":10,"value":480},
+		{"source":1,"target":12,"value":221},
+		{"source":1,"target":14,"value":435},
+		{"source":1,"target":13,"value":284},
+		{"source":1,"target":2,"value":188},
+		{"source":1,"target":3,"value":54},
+		{"source":1,"target":4,"value":224},
+		{"source":1,"target":5,"value":308},
+		{"source":1,"target":6,"value":448}
+	]
+}

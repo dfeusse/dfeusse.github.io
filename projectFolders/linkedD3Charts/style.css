@@ -1,0 +1,31 @@
+.linechart{
+  	fill: none;
+  	stroke: black;
+  	stroke-width: 8px;
+}
+/*
+#barchart_container {
+	float:left;
+}
+#linechart_container {
+	float:right;
+}
+*/
+#barchart_subheader, #linechart_subheader {
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: none;
+}

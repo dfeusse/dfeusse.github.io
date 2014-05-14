@@ -1,0 +1,118 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin:20px 0 20px 0;
+}
+.block {
+	float:left;
+	height:120px;
+}
+.pink { 
+	/* background:#ee3e64; */
+	width:400px; /*useless, delete */
+}
+.blue { 
+	display:table; 
+	/* background:#44accf; */
+	float:right;
+}
+.netflixlogo {
+	display:table-cell;
+	vertical-align:middle;
+}
+.floatleft {
+	float:left;
+}
+.totalPostsContainer {
+	/* background:steelblue; */
+	height: 120px;
+	width: 100%;
+}
+.resetLink {
+	/* background:grey; */
+	float:right;
+}
+.pone {
+	/* background:black; */
+	float:right;
+}
+.totalPostsHeader {
+	margin-left:auto;
+	margin-right:auto;
+	width:20%;
+}
+.totalSentimentHeader {
+	margin-left:auto;
+	margin-right:auto;
+	width:55%;
+}
+.totalFollowersHeader {
+	margin-left:auto;
+	margin-right:auto;
+	width:40%;
+}
+.totalKloutHeader {
+	margin-left:auto;
+	margin-right:auto;
+	width:32%;
+}
+.yellow {
+	display:table; 
+	/* background:yellow; */
+}
+.totalPosts_Icon {
+	display:table-cell;
+	vertical-align:middle;
+}
+.green { 
+	display:table; 
+	/* background:#b7d84b; */
+	float:left;
+}
+.totalPosts_Text {
+	display:table-cell;
+	vertical-align:middle;
+	font-size: 48px;
+}
+.sentimentPosts_Text {
+	display:table-cell;
+	vertical-align:middle;
+	font-size: 38px;
+}
+.otherPosts_Text {
+	display:table-cell;
+	vertical-align:middle;
+	font-size: 38px;
+}
+.sentimentButtonPadding {
+	padding-left:30px;
+}
+.sentimentTextPadding {
+	padding-left:12px;
+}
+
+/* table */
+table.dc-data-table.dc-chart {
+    width: 1000px;
+    margin: 0px auto;
+    /*
+    margin-top: 50px; 
+    font-size: 0.9em; 
+    */
+}
+#resetAll {
+	margin-top:20px;
+	font-size: 18px;
+}
+/* jv centering method */
+#date-chart {
+	margin-left: 100px;
+}
+#sentiment-chart {
+	margin-left: 280px;
+}
+#follower-chart {
+	margin-left: 10px;
+}
+#klout-chart {
+	margin-left: 35px;
+}

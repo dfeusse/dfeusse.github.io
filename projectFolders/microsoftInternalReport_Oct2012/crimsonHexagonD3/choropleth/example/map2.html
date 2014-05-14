@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="d3.js"></script>
+    <script src="http://d3js.org/d3.v2.min.js?2.10.0"></script>
+    <script type="text/javascript" src="d3.geo.js"></script>
+   <!-- <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="colorbrewer.css"/> -->
+    <style type="text/css">
+
+
+
+path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div id="body">
+ 
+    </div>
+    <script type="text/javascript">
+
+var width = 960;
+var height = 500;
+
+var color = d3.scale.threshold()
+  .domain([0, 750, 1250, 2250, 2750, 5000, 15000, 30000, 70000])
+  .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)"]);
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+d3.json("CHstatedata116.json", function(data) {
+  d3.json("us-states.json", function(collection) {
+    svg.selectAll("path")
+      .data(collection.features)
+      .enter()
+      .append("path")
+      .attr("d", d3.geo.path())
+      .style("fill", function(d) { return color(data[d.id]); })
+      .append("title")
+        .text(function(d) { return d.properties.name + ": " + data[d.id] + " posts"; });
+  });
+});
+
+    </script>
+  </body>
+</html>

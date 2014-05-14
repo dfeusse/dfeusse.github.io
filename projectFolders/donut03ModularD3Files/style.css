@@ -1,0 +1,12 @@
+body{
+  	text-align: center;
+}
+donut-chart{
+	width: 200px;
+	height: 200px;
+	display:inline-block;
+	cursor: pointer;
+}
+ul{
+   list-style-type: none;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Crimson Hexagon Summary</title>
+    <script type="text/javascript" src="../d3.v2.js"></script>
+    <!-- <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js?1.25.0"></script> -->
+    <script type="text/javascript" src="../d3.layout.js"></script>
+    <script type="text/javascript" src="../jquery-1.6.2.min.js"></script> 
+	<script type="text/javascript" src="../jquery.tipsy.js"></script>
+	<link href="../tipsy.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="colorbrewer.css"/>
+    <link type="text/css" rel="stylesheet" href="calendar.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    
+    <!-- <link type="text/css" rel="stylesheet" href="stylePH.css"/> -->
+	
+    <!-- Le styles -->
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+    
+   /*d3 CSS */
+    	
+svg #hellcat {
+  height:300;
+}
+
+
+  /*Other CSS*/
+        body {
+		font-family: "Myriad Pro";
+	}
+    #logo {
+    	margin-top : 20px;
+    	margin-bottom : 10px;
+    }
+      body {
+        padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      #header {
+      	padding-top: 20px;
+      }
+      #nav {
+      	padding-top : 0px;
+      	padding-bottom : 0px;
+      }
+      #partition {
+      	margin-top : 0px;
+      }
+      #desc {
+      	padding-top: 5px;
+      	padding-bottom : 0px;
+      }
+      .footer {
+      	padding-top: 30px;
+      }
+      #stophover {
+    background-color: transparent;
+	}
+	#stophover2 {
+		text-align: center;
+		background-color: transparent;
+	}
+ 	li.disabled {
+ 		color : #AAAAAA;
+ 		text-decoration : none;
+ 	}
+	#alignplease {
+		position : relative;
+	}
+	.nav .nav-pills .pull-right {
+	position : absolute;
+	bottom : 0;
+ 	}
+ 	
+ 	.nav > li.disabled {
+  color: grey;
+  pointer-events: none;
+}
+.nav > li.disabled > a:hover {
+  cursor: default;
+  text-decoration: none;
+  background-color: inherit;
+}
+.btn-group {
+	float : right;
+	padding-bottom : 30px;
+}
+ 	
+    </style>
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+<div class="container" id="app">
+  <div class="row">
+    <div class="span12">
+    
+      <h1 id="logo">
+        <a href="http://www.microsoft.com/en-us/default.aspx">
+        	<img src="../microsoftlogo.jpg" height="100px"/>
+        </a>
+      </h1>
+    </div>
+  </div>
+  
+  <div class="container">
+  	<div id = "alignplease">
+			
+      <h1 id = "header">Calendar Chart</h1>
+      <p id = "desc"> Calendar charts showing last and this years data.<br> Shows goals, past, present, etc </p>
+	</div>  
+
+	<div class="btn-group">
+		<a class="btn" href="#"><i class="icon-list-alt icon-red"></i> More Reportlets </a>
+  		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+		<ul class="dropdown-menu">
+		  
+		  <li><a href="../filterDashboard/microsoftFilterDashboard.html">Optimization Dashboard</a></li>
+		  <li><a href="../bulletChart/microsoftBulletPage.html">Bullet Chart</a></li>
+		<!--  <li><a href="#">Network</a></li>
+		  <li><a href="#">Data Table</a></li>
+		  <li class="divider"></li> -->
+		  <li><a href="#.xls"><i class="icon-file"></i>Export to Excel</a></li>
+		</ul>
+		
+	</div>	
+		
+ 
+  
+ </div> <!-- /container -->
+
+  <div class="row">
+    <div class="span12">
+    <div class="visual">
+      <div id="sentiment"></div>
+      <script src="sentDiffArea.js" type="text/javascript"></script>
+    </div>
+    </div>
+  </div>
+
+
+    <div class="visual">
+    	<div id="sentDiffBars"></div>
+    	<script src="sentimentDifferenceTryTwo.js" type="text/javascript"></script>
+    </div>
+
+
+
+	<footer class="footer">
+	  <div class="row">
+	    <div class="span12">
+	      <table class="table table-bordered">
+	        <tr>
+	          <td id="stophover"><img src = "../RGA.png" height = "20px" width ="50px"/> San Francisco Analytics Department, 2012.</td>
+	          <td id="stophover2"><a href="http://www.rga.com/" class="center">About</a></td>
+	        </tr>
+	      </table>
+	    </div>
+	  </div>
+	</footer>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap-transition.js"></script>
+    <script src="../bootstrap/js/bootstrap-alert.js"></script>
+    <script src="../bootstrap/js/bootstrap-modal.js"></script>
+    <script src="../bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="../bootstrap/js/bootstrap-tab.js"></script>
+    <script src="../bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="../bootstrap/js/bootstrap-popover.js"></script>
+    <script src="../bootstrap/js/bootstrap-button.js"></script>
+    <script src="../bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="../bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

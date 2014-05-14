@@ -1,0 +1,96 @@
+{
+	"name": "average MAU",
+	"children": [
+		{"name": "iHeartRadio", 
+			"children": 
+				[
+					{"name": "April", "size": 6.2},
+					{"name": "May", "size": 6.5},
+					{"name": "June", "size": 6.4},
+					{"name": "July", "size": 6.5},
+					{"name": "August", "size": 6.7},
+					{"name": "September", "size": 6.4},
+					{"name": "October", "size": 6.1},
+					{"name": "November", "size": 6}
+				]
+		},
+		{"name": "Pandora",
+			"children":
+				[
+					{"name": "April", "size": 30.7},
+					{"name": "May", "size": 32},
+					{"name": "June", "size": 30.5},
+					{"name": "July", "size": 33.4},
+					{"name": "August", "size": 34.3},
+					{"name": "September", "size": 31.5},
+					{"name": "October", "size": 29.2},
+					{"name": "November", "size": 30.8}
+				]
+		},
+		{"name": "Shazam",
+			"children":
+				[
+					{"name": "April", "size": 18},
+					{"name": "May", "size": 18.6},
+					{"name": "June", "size": 17.7},
+					{"name": "July", "size": 17.7},
+					{"name": "August", "size": 18},
+					{"name": "September", "size": 16.4},
+					{"name": "October", "size": 16.3},
+					{"name": "November", "size": 18}
+				]
+		},
+		{"name": "Slacker Radio",
+			"children":
+				[
+					{"name": "April", "size": 0.9},
+					{"name": "May", "size": 1},
+					{"name": "June", "size": 1},
+					{"name": "July", "size": 0.9},
+					{"name": "August", "size": 0.8},
+					{"name": "September", "size": 0.7},
+					{"name": "October", "size": 0.7},
+					{"name": "November", "size": 0.7}
+				]
+		},
+		{"name": "Songza",
+			"children":
+				[
+					{"name": "April", "size": 0.4},
+					{"name": "May", "size": 0.4},
+					{"name": "June", "size": 3},
+					{"name": "July", "size": 2.3},
+					{"name": "August", "size": 2.2},
+					{"name": "September", "size": 2},
+					{"name": "October", "size": 1.8},
+					{"name": "November", "size": 1.9}
+				]
+		},
+		{"name": "Stitcher",
+			"children":
+				[
+					{"name": "April", "size": 1.5},
+					{"name": "May", "size": 1.6},
+					{"name": "June", "size": 1.7},
+					{"name": "July", "size": 1.8},
+					{"name": "August", "size": 1.9},
+					{"name": "September", "size": 1.7},
+					{"name": "October", "size": 1.6},
+					{"name": "November", "size": 1.4}
+				]
+		},
+		{"name": "TuneIn",
+			"children":
+				[
+					{"name": "April", "size": 5.8},
+					{"name": "May", "size": 5.9},
+					{"name": "June", "size": 6.2},
+					{"name": "July", "size": 6.2},
+					{"name": "August", "size": 6},
+					{"name": "September", "size": 5.7},
+					{"name": "October", "size": 6.2},
+					{"name": "November", "size": 6.1}
+				]
+		}
+	]
+}

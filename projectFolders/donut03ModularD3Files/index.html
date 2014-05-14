@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src="../donut01/d3.js"></script>
+<script src="PieChart.js"></script>
+<!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="http://code.angularjs.org/1.2.8/angular.js"></script> -->
+<script src="../../roark/underscore/underscore.min.js"></script>
+<script src="../../roark/js/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+
+<body ng-app="myApp">
+	<div ng-controller="MainController">
+		<donut-chart data="shared.data" on-click="chartClicked()"></donut-chart>
+		<ul>
+			<li ng-repeat="v in shared.data track by $index">
+				<input type="range" min="0" max="100" ng-model="shared.data[$index]"></input>
+			</li>
+			<button ng-click="addValue()">Add value</button>
+		</ul>
+	</div>
+</body>
+
+<script src="app.js"></script>
+</html>
+      

@@ -1,0 +1,17 @@
+ARTIST,YEAR,TIME,SENTIMENT,POSTS,GENRE,REPEAT
+Red Hot Chili Peppers,2007,11,40.24456883,5000,Alt Rock,N
+Black Keys,2012,11,46.77651536,4000,Alt Rock,N
+Red Hot Chili Peppers,2013,11,66.18174326,6000,Alt Rock,N
+Snoop Dogg,2012,11,34.79454463,10000,Hip Hop,N
+Phoenix,2013,11,67.90233851,70000,Alt Rock,N
+Bassnectar,2013,4,45.17761567,10000,Electronic,Y
+Beats Antique,2012,5,44.46366868,2000,Electronic,Y
+The Stone Roses,2013,10,89.49030958,4000,Alt Rock,Y
+Blur,2013,9,38.87241645,6000,Electronic,Y
+Swedish House Mafia,2012,11,34.28362125,8000,Electronic,Y
+Radiohead,2012,11,67.73224123,9000,Alt Rock,N
+Phoenix,2010,9,72.50704287,7500,Alt Rock,N
+Bassnectar,2010,8,23.63834413,2000,Electronic,Y
+Bassnectar,2011,11,60.41335327,4000,Electronic,Y
+Beats Antique,2010,3,88.55261891,1500,Electronic,N
+Jurassic Five,2013,9.5,39.59410743,8000,Hip Hop,N

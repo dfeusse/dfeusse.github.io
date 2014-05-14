@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title> poning </title>
+	    <script type="text/javascript" src="../../roark/angular/angular.min.js"></script>
+        <script type="text/javascript" src="../../roark/angular/angular-resource.min.js"></script>
+        
+	    <!-- My CSS
+	    <link href="style_html.css" rel="stylesheet"> -->
+	    <link href="../../roark/bootstrap-3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="../../assets/js/html5shiv.js"></script>
+	      <script src="../../assets/js/respond.min.js"></script>
+	    <![endif]-->
+  	</head>
+
+  	<body>
+    	
+    <div ng-app="switchableGrid" ng-controller="SwitchableGridController">
+
+        <!-- <span ng-show="searchTerm">{{searchTerm}}</span> -->
+
+        <div class="bar">
+            <!-- toggle buttons -->
+            <div class="row">
+                <div class="col-lg-9">
+                    
+                    <div class="input-group">
+                        <input type="text" ng-model="searchTerm" class="form-control" placeholder="Enter your search terms">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="doSearch()"><i class="icon-search"></i>Search</button>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col-lg-3">
+                    <a class="list-icon" ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
+                    <a class="grid-icon" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row marketing">
+                <div class="col-lg-9">
+                </div>
+                <div class="col-lg-3">
+                    <input type="text" class="form-control" ng-model="filterTerm" placeholder="Filter">
+                </div>
+            </div>
+        </div>
+
+
+
+        <ul ng-show="layout == 'grid'" class="grid">
+            <li ng-repeat="p in pics | filter:filterTerm">
+                <a href="{{p.link}}" target="_blank"><img src="{{p.volumeInfo.imageLinks.thumbnail}}"> </a>
+            </li>
+        </ul>
+
+        <ul ng-show="layout == 'list'" class="list">
+            <li ng-repeat="p in pics | filter:filterTerm">
+                <!-- <a href="{{p.link}}" target="_blank"><img src="{{p.images.thumbnail.url}}"></a>
+                <p>{{p.caption.text}}</p> -->
+                <a href="{{p.volumeInfo.title}}" target="_blank"><img src="{{p.volumeInfo.imageLinks.smallThumbnail}}"></a>
+                <p>{{p.volumeInfo.title}}</p>
+            </li>
+        </ul>
+        
+    </div>
+
+    <!-- JavaScript
+    ================================================== -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+  	</body>
+</html>

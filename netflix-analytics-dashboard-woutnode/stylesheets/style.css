@@ -1,0 +1,604 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.y.axis text {
+	font-size: 10px;
+}
+/* Custom container */
+.container-narrow {
+	margin: 0 auto;
+    max-width: 700px;
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+span.radio_label {
+	padding-left: 2.5px;
+}
+/* Nav bar on who/what */
+
+/*
+.marketing {
+    margin: 60px 0;
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+*/
+
+/* My CSS */
+.netflixlogo {
+	display:table-cell;
+	vertical-align:middle;
+}
+.block {
+	float:left;
+	height:100px;
+}
+.pink { 
+	/* background:#ee3e64; */
+	width:400px; /*useless, delete */
+}
+.blue { 
+	display:table; 
+	/* background:#44accf; */
+	float:right;
+}
+.header {
+	font-size: 29.5px;
+	line-height: 15px;
+	margin-top: 25px;
+	font-weight: bold;
+	text-rendering: optimizelegibility;
+}
+.date {
+	font-size: 18.5px;
+	margin: 0;
+	font-weight: bold;
+	margin-top: 10px;
+	color:grey;
+}
+#data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:red;
+
+/*
+.jumbotron {
+    margin: 60px 0;
+    text-align: center;
+}
+.jumbotron h1 {
+    font-size: 72px;
+    line-height: 1;
+}
+*/
+}
+#post_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	/*border-top-color:#dd4646;*/
+	border-top-color:#b9090b;
+}
+#impression_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:#f29e38;
+}
+#passion_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:#1c578c;
+}
+#positive_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:#5787a5;
+}
+#negative_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:#f2e0c9;
+}
+#netsentiment_data_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:#f2d750;
+}
+
+/* bottom rects styling $$$$$$$$$$$$$$$$*/
+
+/* Lower bars color */
+rect.horiz_bars {
+    fill:#b9090b;
+}
+.horiz_bar_header {
+    font-size: 17.5px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 10px 0 15px 10px;
+}
+.horiz_paid_header {
+	margin-left: 35px;
+	font-weight: bold;
+}
+.horiz_allother_header {
+	font-weight: bold;
+}
+
+
+/* three layers of the 6 data tiles */
+.tile { position: relative; width:220px;}
+#top { /*background: #ee3e64;*/ height:35px;}
+#middle { 
+	/*background: #44accf;*/
+	height:35px;
+	/*text-align: center;
+	vertical-align: middle;
+	line-height: 90px;  */
+	text-align: center;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+#bottom { 
+	/*background: #b7d84b;*/
+	height:40px;
+	/*text-align: center;
+	vertical-align: middle;
+	line-height: 100px;  */
+	text-align: center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+	text-align: center;
+}
+.total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+	text-align: center;
+}
+/* $$$$$$$$$$$$$$$$$$$$$$$$ */
+/* EACH TILE STYLE FOR TEXT */
+.posts_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.posts_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.posts_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.impressions_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.impressions_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.impressions_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.passion_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.passion_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.passion_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.positive_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.positive_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.positive_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.negative_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.negative_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.negative_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.netsentiment_week_data {
+	font-size: 32.5px;
+	font-weight: bold;
+}
+.netsentiment_total_data {
+	font-size: 20.5px;
+	font-weight: bold;
+	color:grey;
+}
+.netsentiment_percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+/* END OF EACH TILE STYLE FOR TEXT */
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+.total_data_label {
+	color:grey;
+}
+/*end of three layers of the 6 data tiles */
+
+.tile_header {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 0 0 10px;
+	float: left;
+}
+.percent_change {
+	font-size: 17.5px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+#fullWidth_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	height: 300px;
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+#usStates_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	height: 550px;
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:gray;
+}
+#table_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	height: 345px;
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:gray;
+}
+#overview_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	height: 380px;
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	border-top-color:gray;
+}
+#chartContainer {
+	font: 10px sans-serif;
+	position:relative;
+	float:left;
+	margin-left: -10px;
+}
+#energychart {
+	stroke: #777;
+	stroke-width: 0.1px;
+	height: 750px;
+
+}
+.metricFilter {
+	font: 10px sans-serif;
+	float:right;
+	margin-top:5px;
+}
+#sixbars_tile {
+	margin-top: 18px;
+	background-color: #fafafa;
+	border: 2px;
+	border-color: black;
+	/* height: 120px; */
+	border-width: 1.5px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-top-style:solid;
+	border-top-width:8px;
+	/*border-top-color:#dd4646;*/
+	border-top-color:gray;
+
+	height:275px;
+}
+/*
+.header {
+  	font: 22px sans-serif;
+  	margin-left: 350px;
+}
+*/
+.axis path,
+.axis line {
+  	fill: none;
+  	stroke: #000;
+  	shape-rendering: crispEdges;
+}
+.x.axis path {
+  	display: none;
+}
+.x.axis text {
+	font-size: 10px;
+}
+.y.axis path {
+	display: none;
+}
+.tooltip {
+  	position: absolute;
+  	text-align: center;
+  	width: 80px;
+  	height: 20px;
+  	padding: 8px;
+  	font: 10px sans-serif;
+  	background: #ddd;
+  	border: solid 1px #aaa;
+  	border-radius: 8px;
+  	pointer-events: none;
+}
+table path {
+	stroke: #B9090B;
+	stroke-width: 1;
+	fill: none;		
+}
+table rect {
+	fill: #B9090B;
+}
+#who_table {
+	margin-top:-20px;
+}
+/*
+.poney {
+  	margin:0%;
+  	background-color:yellow;
+  	width:100%;
+  	padding-bottom:0%;
+  	float:left;
+  	position:relative;
+  	top:-65px;
+}
+.tx {
+  	width:100%;
+  	position:absolute;
+  	text-align:center;
+  	padding-top:100%;
+  	-webkit-transform: translateY(-50%); 
+  	-moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+  	transform:translateY(-50%);
+}
+.baloney {
+  	margin:0%;
+  	background-color:yellow;
+  	width:100%;
+  	padding-bottom:0%;
+  	float:left;
+  	position:relative;
+  	top:-75px;
+}
+*/
+/*
+.radioFilter {
+	vertical-align: middle;
+	margin-top: 0;
+}
+*/
+.radio_label {
+	margin-right:10px;
+	margin-left:1.5px;
+	vertical-align: middle;
+}
+.title_eachbar_text {
+	font-size: 17.5px;
+	font-weight: bold;
+	margin-top:-15px;
+}
+
+.footer {
+    padding-top: 30px;
+}
+#stophover {
+    background-color: transparent;
+}
+#stophover2 {
+	text-align: center;
+	background-color: transparent;
+}
+.nav-tabs > li > a {
+	color: #555555;
+}
+#country_dropdown {
+	float:right;
+}
+/* D3 Main tooltips */
+ .d3-main-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  .d3-main-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
+
+  .d3-main-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
+
+  .d3-main-tip span {
+    /* color: #ff00c7; */
+    color: #fff;
+  }
+/* D3 FB tooltips */
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+
+/*
+    transform: translateX(-175px);
+    -webkit-transform:translateX(-175px);
+*/
+    transform: rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    right:49px;
+
+}
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    
+}
+.d3-tip span {
+    color: #fff;
+}
+/* change bars opacity during hover over */
+rect:hover {
+	fill-opacity:0.8;
+};

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dc.js - Dimensional Charting Javascript Library</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="d3.v2.js"></script>
+    <script type="text/javascript" src="crossfilter.v1.js"></script>
+    <script type="text/javascript" src="dc.js"></script>
+    <link rel="stylesheet" type="text/css" href="dc.css"/> 
+    <link rel="stylesheet" type="text/css" href="example.css"/> 
+
+    <link href='highlighter/shCore.css' rel='stylesheet' type='text/css'/>
+    <link href='highlighter/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+    <script src='highlighter/shCore.js' type='text/javascript'></script>
+    <script src="highlighter/shAutoloader.js" type="text/javascript"></script>
+    <script src='highlighter/shBrushJScript.js' type='text/javascript'></script>
+    <script src='highlighter/shBrushXml.js' type='text/javascript'></script>
+    
+    <style>
+    	body {
+    		font-family: Casper;
+            font-size: 1.5em;
+    	}
+
+    </style>
+</head>
+<body>
+
+    <h2>Netflix - font selection</h2>
+    <span>2013</span>
+
+    <h1> Posts <h1>
+    <h3> 1,786,295 </h3>
+
+    <p> Sentiment: 840,837 </p>
+
+    <p>7,521<br>selected</p>
+    <div id="display"></div>
+<!--
+    <div id="pone">
+    <p id="insights">
+        Can fill in insights here which will transform the visual when clicking on it. So can lead the audience to exact insights you want them to see and they can toggle back and forth. For example, can show there are not many tweets in the morning when people are sleeping <a href="javascript:dc.filterAll(); dc.renderAll(); javascript:hourChart.filter([1,3]); dc.redrawAll();"> 1 - 3 am </a> and there is a lot of reach <a href="javascript:dc.filterAll(); dc.renderAll(); javascript:reachChart.filter([90,95]);dc.redrawAll();"> between 90 and 95 </a>. Or can filter it by multiple filters and show data both <a href="javascript:dc.filterAll(); dc.renderAll(); javascript:hourChart.filter([1,3]); dc.redrawAll();javascript:reachChart.filter([90,95]);dc.redrawAll();"> between 1 - 3 am and between 90 and 95 reach </a>.
+    </p>
+    </div>
+-->
+<script type="text/javascript">
+
+var svg = d3.select("#display").append("svg")
+.attr({
+  width:500,
+  height:500
+})
+
+var data = [20, 50, 25, 16, 37]
+
+var heightScale = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d }) ])
+    .range([0,50]);
+
+var bars = svg.selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+.attr({
+  height:20,
+  width: function(d,i) {
+    return heightScale(d)
+  },
+  y: function(d,i) {
+    return (i*22) + 100
+  },
+  x: function(d,i) {
+    return 21
+  }
+    
+})
+
+</script>
+
+</body>
+</html>
