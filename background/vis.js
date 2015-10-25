@@ -25,6 +25,10 @@ $(document).ready(function() {
      borderBottomWidth: '150px'}, 1000);
   $('#item10').animate({
      borderBottomWidth: '150px'}, 1000);
+  $('#item11').animate({
+     borderBottomWidth: '100px'}, 1000);
+  $('#item12').animate({
+     borderBottomWidth: '150px'}, 1000);
 
 })
 
