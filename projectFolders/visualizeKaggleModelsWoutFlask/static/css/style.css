@@ -1,0 +1,115 @@
+circle {
+    fill-opacity: 0.9;
+}
+circle:hover {
+    fill-opacity: 0.7;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    /* color: #fff; 
+    color: #d71028; */
+    color: #F012BE;
+    /* color: #8a8989; */
+    border-radius: 2px;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.d3-tip span {
+    /* color: #ff00c7; */
+    /* color: #d71028; */
+    color: #fff;
+}
+
+
+.navvy {
+    background: #47494d;
+    width: 100%;
+    height: 80px;
+}
+
+.kaggleLogo {
+    width: 90px;
+    height: auto;
+    margin-bottom:18px;
+    /* position:relative;
+    margin-top: 20px;*/
+}
+
+.header {
+    font-size: 3.2vw;
+    letter-spacing: -0.03em;
+    font-weight: 900;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    line-height: 80px;
+    /*
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    */
+}
+
+#bubbles {
+   
+}
+
+#numbers_container {
+    background: #2699c7;
+}
+#numbers {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+#left_positive, #left_negative {
+    width: 20px;
+    height: 50px;
+    float:left;
+}
+#left_positive {
+    background: #baf9e6;
+}
+#left_negative {
+    background: #ef877f;
+}
+
+#positive_number, #negative_number {
+    color: white;
+}
+
+#positive_number, #negative_number {
+    font-weight: 900;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 3.2vw;
+    line-height: 50px;
+    padding-left:10px;
+}
+
+#positive_number {
+    
+}
+
+#negative_number {
+
+}

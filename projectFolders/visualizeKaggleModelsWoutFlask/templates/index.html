@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AngularFlask</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
+    <script src="../static/lib/js/angular/angular.min.js"></script>
+    <script src="../static/lib/js/angular/angular-resource.min.js"></script>
+    <script src="../static/lib/js/d3/d3.v3.min.js"></script>
+    <script src="../static/lib/js/d3/d3.tip.js"></script>
+    
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/controller.js"></script>
+    <script src="../static/js/service.js"></script>
+    <script src="../static/js/directive.js"></script>
+
+    
+</head>
+<body ng-app="myApp">
+
+        <div class="navvy">
+            <div class="container marketing">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img class="kaggleLogo" src="../static/lib/img/kaggle-site-logo.png">
+                        <span class="header"> Model Results </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="numbers_container">
+            <div id ="numbers" class="container marketing">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div id="left_positive">
+                        </div>
+                        <div id="right_positive">
+                            <span id="positive_number"> 67% </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div id="left_negative">
+                        </div>
+                        <div id="right_negative">
+                            <span id="negative_number"> 33% </span>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-lg-2">
+                        <div id="left_negative">
+                            <span id="negative_number"> 33% </span>
+                        </div>
+                        <div id="right_negative">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                    </div>
+                    `-->
+                </div>
+            </div>
+        </div>
+
+        <div id="bubbles">
+            <div class="container marketing">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div ng-controller="MainController">
+                            <!-- {{ shared }} -->
+                            <!-- <bar-chart data="shared.data"></bar-chart> -->
+                            <bar-chart data='shared'></bar-chart> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	</div>
+
+    <script src="../static/js/bubbleVis.js"></script>
+</body>
+</html>
