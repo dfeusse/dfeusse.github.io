@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>SPS project</title>
+		<style>
+			html, body {
+				height: 100%;
+			}
+
+			body {
+				background-color: #000000;
+				margin: 0;
+				font-family: Arial;
+				overflow: hidden;
+			}
+		/*
+			a {
+				color: #ffffff;
+			}
+
+			#info {
+				position: absolute;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family: Monospace;
+				font-size: 13px;
+				font-weight: bold;
+				text-align: center;
+			}
+		*/
+
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 140px;
+				height: 180px;
+				/*
+				box-shadow: 0px 0px 20px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				*/
+				box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+				border: 1px solid rgba(242,242,242,0.25);
+				cursor: default;
+			}
+
+			.element:hover {
+				/*
+				box-shadow: 0px 0px 420px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.75);
+				*/
+				box-shadow: 0px 0px 20px rgba(255,255,255,0.75);
+				border: 1px solid rgba(242,242,242,0.75);
+			}
+		/*
+				.element .number {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 20px;
+					color: rgba(127,255,255,0.75);
+				}
+
+				.element .symbol {
+					position: absolute;
+					top: 40px;
+					width: 100%;
+					font-size: 70px;
+					text-align: center;
+					color: rgba(255,255,255,0.75);
+					font-weight: bold;
+
+					-webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+					-moz-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+					-o-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+					-ms-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+					filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+				}
+
+				.element .details {
+					position: absolute;
+					top: 125px;
+					width: 100%;
+					font-size: 18px;
+					text-align: center;
+					color: rgba(127,255,255,0.75);
+				}
+			*/
+		/*
+			button {
+				color: #0074D9;
+				background: transparent;
+				outline: 1px solid #FF851B;
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+				-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+			}
+			button:hover {
+				color: red;
+				outline: 1px solid red;
+			}
+			button:active {
+				color: #000000;
+				background-color: white;
+			}
+		*/
+		button {
+			cursor: pointer;
+
+			border: none;
+			background: #bdc3c7;
+			color: #ffffff;
+			padding: 9px 12px 10px;
+			line-height: 22px;
+			text-decoration: none;
+			text-shadow: none;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			border-radius: 6px;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+			font-size: 14.994px;
+font-weight: 500;
+align-items: flex-start;
+text-align: center;
+cursor: default;
+		}
+		button:hover{
+			background-color: #cacfd2;
+color: #ffffff;
+outline: none;
+-webkit-transition: 0.25s;
+-moz-transition: 0.25s;
+-o-transition: 0.25s;
+transition: 0.25s;
+-webkit-backface-visibility: hidden;
+		}
+
+		/*
+		#hashtagHeader {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  			color: white;
+  			font-size: 40px;
+  			font-weight: bold;
+		}
+		*/
+		h2 span {
+		 	color: white; 
+		 	font: bold 34px/55px Helvetica, Sans-Serif; 
+		   	letter-spacing: -1px;
+		   	/* background: rgb(0, 0, 0); fallback color */
+		   	background: rgba(0, 0, 0, 0.7); 
+		   	padding: 10px;
+		   	position: absolute;
+			top: 20px;
+			right: 20px;
+
+		}
+		h4 {
+			color: white; 
+		 	font: bold 34px/55px Helvetica, Sans-Serif; 
+		   	letter-spacing: -1px;  
+		   	/*
+		   	background: rgb(0, 0, 0); */ /* fallback color */
+		   	/* background: rgba(0, 0, 0, 0.7); */
+		   	padding: 10px;
+		}
+		#pictureMetaDataContainer {
+			margin-top:40px;
+		}
+		.pictureMetaData {
+			color: white; 
+		 	font: bold 34px/55px Helvetica, Sans-Serif; 
+		   	letter-spacing: -1px;
+		   	/* background: rgb(0, 0, 0); fallback color */
+		   	background: rgba(0, 0, 0, 0.7); 
+		   	/* padding: 10px;
+		   	position: absolute;
+			top: 20px;
+			right: 20px; */
+			position:relative;
+			margin-left: 10px;
+		}
+		#metadataText {
+			padding-left:5px;
+		}
+		.pics {
+			/*
+			-webkit-transition: all .2s ease-in-out;
+			*/
+		}
+		img {
+			/* -ms-interpolation-mode: bicubic; */
+			transition:all 1.5s linear; 
+    		-o-transition:all 1.5s linear; 
+    		-moz-transition:all 1.5s linear; 
+    		-webkit-transition:all 1.5s linear;
+		}
+   
+
+		</style>
+	</head>
+	<body>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/tween.min.js"></script>
+		<script src="controls/TrackballControls.js"></script>
+		<script src="renderers/CSS3DRenderer.js"></script>
+
+		<!-- <link href="../../roark/Flat-UI-master/css/flat-ui.css" rel="stylesheet"> -->
+
+		<div id="container"></div>
+		<h2 id="hashtagHeader"><span>#SocialPrintStudio</span></h2>
+		<div id="pictureMetaDataContainer">
+			<div id="metadataUsername"></div>
+			<div id="metadataProfilePicture"></div>
+			<div id="metadataText"></div>
+			<div id="metadataLikes"></div>
+		</div>
+		
+		
+		<div id="menu">
+			<button id="table" class="btn btn-info btn-xs">TABLE</button>
+			<button id="tableDan" class="btn btn-info btn-xs">TABLE DAN</button>
+			<button id="helix" class="btn btn-info btn-xs">HELIX</button>
+			<button id="grid" class="btn btn-info btn-xs">GRID</button>
+			<button id="sphere" class="btn btn-info btn-xs">SPHERE</button>
+
+		<script>
+
+		//function getData(){
+			console.log('ajax call')
+
+			var url = 'tPull.json';
+			// var url = 'periodicTable.json';
+			$.ajax({
+			    url: url,
+			    dataType: "json",
+			    success: function(data, jqXHR){
+			      	table = data.photos
+			      	console.log(table)
+
+			      	var camera, scene, renderer;
+					var geometry, material, mesh;
+
+					var controls;
+
+					var objects = [];
+					var targets = { table: [], tableDan: [], tableDanBackToOriginal: [], sphere: [], helix: [], grid: [] };
+
+					init();
+					animate();
+
+					function init() {
+
+						camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 5000 );
+						camera.position.z = 1800;
+
+						scene = new THREE.Scene();
+
+						for ( var i = 0; i < table.length; i ++ ) {
+
+							var item = table[ i ];
+
+							var element = document.createElement( 'div' );
+							element.className = 'element';
+							//element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+							//var number = document.createElement( 'div' );
+							//number.className = 'number';
+							//number.textContent = i + 1;
+							//element.appendChild( number );
+
+							var pictureDiv = document.createElement( 'div' );
+							pictureDiv.className = 'picture';
+							/*
+							pictureDiv.innerHTML =  '<img src="' + item.url + '" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="ponepics" alt="pictures" height="600" width="600">'
+							*/
+							pictureDiv.innerHTML =  '<img src="' + item.url + '" id="' + "pic_" + item.id + '" class="pics" alt="pictures" height="600" width="600">'
+							/*
+							pictureDiv.innerHTML =  '<img src="' + item.url + '" id="' + "pic_" + i + '" class="pics" alt="pictures" height="600" width="600">'
+							*/
+							element.appendChild( pictureDiv );
+
+							//var symbol = document.createElement( 'div' );
+							//symbol.className = 'symbol';
+							//symbol.textContent = item[ 0 ];
+							//element.appendChild( symbol );
+
+							//var details = document.createElement( 'div' );
+							//details.className = 'details';
+							//details.innerHTML = item[ 1 ] + '<br>' + item[ 2 ];
+							//element.appendChild( details );
+
+						/* THIS IS INSTA METADATA
+							var details = document.createElement( 'div' );
+							details.className = 'details';
+							details.innerHTML = item.username + '<br>' + item.text;
+							element.appendChild( details );
+						*/
+
+							var object = new THREE.CSS3DObject( element );
+							object.position.x = Math.random() * 4000 - 2000;
+							object.position.y = Math.random() * 4000 - 2000;
+							object.position.z = Math.random() * 4000 - 2000;
+
+							object.name = item.id;
+
+							scene.add( object );
+
+							objects.push( object );
+
+						}
+
+						console.log('data: object')
+						console.log(objects)
+						console.log('data: target')
+						console.log(targets)
+
+						// picture sizes
+						function changePictureSize(width, height) {
+							// trying to make the pictures smaller
+							var allImgs = document.getElementsByTagName('img'),
+						    	allImgsLength = allImgs.length;
+						    //className = 'something';
+							for (var i = 0; i < allImgsLength; i++) {
+						   		var image = allImgs[i];
+						   		//if (image.className.match(new RegExp('\b' + className + '\b')) {
+						       		// Set what sizes you need
+						       		//image.style.width = '200px';
+						       		//image.style.height = '200px';
+						       		image.style.width = width;
+						       		image.style.height = height;
+						   		//}
+							}
+						}
+
+						function changePictureSizeTwo(width, height) {
+							// trying to make the pictures smaller
+							var allImgs = document.getElementsByTagName('img'),
+						    	allImgsLength = allImgs.length;
+						    //className = 'something';
+							for (var i = 0; i < allImgsLength; i++) {
+						   		var image = allImgs[i];
+						   		//if (image.className.match(new RegExp('\b' + className + '\b')) {
+						       		// Set what sizes you need
+						       		//image.style.width = '200px';
+						       		//image.style.height = '200px';
+						       		/*
+						       		console.log('---------')
+						       		console.log('image: need to find 246')
+						       		console.log(image)
+						       		console.log('!!!!!!!!!!!!!!!!!!!!! image id')
+						       		console.log(image.id)
+						       		console.log('pic_' + jsonID_Lookup)
+						       		// "pic_1882167"
+						       		console.log('temp obj id for transition')
+						       		console.log(tempObjIdForTransition)
+						       		// 246
+						       		// USE THE LOOKUP HERE
+						       		console.log('USE THE LOOKUP HERE')
+						       		console.log(jsonID_Lookup) 
+    								//console.log(tableID_Lookup)
+									*/
+						       		//if(image.id==tempObjIdForTransition){
+						       		if(image.id =='pic_' + jsonID_Lookup){
+						       			console.log('$$$$$$$$$$###############***********************')
+						       			//image.style.width = width*3;
+						       			//image.style.height = height*3;
+						       			//image.scale.x*3;
+
+						       			//image.style.width = '1600px';
+						       			//image.style.height = '1600px';
+						       			//image.animate({transform:'scale(2)'}, 3000);
+						       			//image.animate({transform:'scale(2)'}, 3000);
+						       			//$('#pic_' + jsonID_Lookup).animate({transform:'scale(2)'}, 3000);
+						       			
+						       			//image.style.webkitTransition = 'all 1s ease-in-out';
+						       			//mage.style.webkitTransform = 'scale(2)';
+						       			image.style.width = '1600px';
+						       			image.style.height = '1600px';
+						       			
+
+						       			// maybe here should use jquery to put in metadata
+						       			// at least do the lookup
+						       			console.log('lOOOOkkkUPPPP')
+						       			console.log(jsonID_Lookup)
+						       			console.log('data')
+						       			console.log(data.photos)
+						       			var photoData = data.photos;
+						       			var picMetaData = {}
+						       			for (var i=0; i < photoData.length; i++){
+						       				if(photoData[i].id == jsonID_Lookup){
+						       					picMetaData.avatarUrl = photoData[i].avatar_url
+						       					picMetaData.likes = photoData[i].likes
+						       					picMetaData.retweets = photoData[i].retweets
+						       					picMetaData.text = photoData[i].text
+						       					picMetaData.username = photoData[i].username
+						       				}
+						       			}
+						       			console.log('Selected pics metadata')
+						       			console.log(picMetaData)
+						       			//$( "#metadataHeader" ).innerHTML = picMetaData.username;
+						       			//$( "#metadataHeader" ).innerHTML = "<h4>DAAAAN</h4>";
+						       			//$( "div#metadataHeader" ).html( "<h4>All new content. <em>You bet!</em></h4>" );
+						       			$( "div#metadataUsername" ).html( "<span class='pictureMetaData'>" + picMetaData.username + "</span>" );
+						       			//$( "div#metadataProfilePicture" ).html( '<img src="' + picMetaData.avatarUrl + '" id="' + "pic_" + 'putsomethinghere' + '" class="picMeta" alt="pictures" height="100" width="100">' );
+						       			$( "div#metadataText" ).html( "<span class='pictureMetaData'>" + picMetaData.text + "</span>" );
+						       			$( "div#metadataLikes" ).html( "<span class='pictureMetaData'>" + picMetaData.likes + " likes</span>" );
+
+						       		} else {
+						       			image.style.width = width;
+						       			image.style.height = height;
+						       		}
+						   		//}
+							}
+						}
+
+						function changePictureSizeBack(width, height) {
+							// trying to make the pictures smaller
+							var allImgs = document.getElementsByTagName('img'),
+						    	allImgsLength = allImgs.length;
+						    //className = 'something';
+							for (var i = 0; i < allImgsLength; i++) {
+						   		var image = allImgs[i];
+						   		//if (image.className.match(new RegExp('\b' + className + '\b')) {
+						       		// Set what sizes you need
+						       		//image.style.width = '200px';
+						       		//image.style.height = '200px';
+						       		//if(image.id==tempObjIdForTransition){
+
+						       		//image.style.webkitTransition = 'all .9s ease-in-out';
+
+						       		//image.style.webkitTransition = 'width 1s';
+						       		//image.style.transition = 'width 1s';
+
+						       		//image.style.webkitTransition = 'height 1s';
+						       		//image.style.transition = 'height 1s';
+						       		//image.style.webkitTransform = 'scale(2)';
+						       		//image.style.webkitTransition = 'all 1s ease-in-out';
+						       		//image.style.webkitTransition = 'width 1s';
+						       		
+						       		//image.style.MozTransition = 'width 1s ease-in-out, left 1.5s ease-in-out';
+						       		//image.style.webkitTransition = 'width 1s ease-in-out, left 1.5s ease-in-out';
+						       		//image.style.transition = 'width 1s ease-in-out, left 1.5s ease-in-out';
+						       		
+						       		//image.style.MozTransition = 'height .3s ease-out, left .5s ease-out';
+						       		//image.style.webkitTransition = 'height .3s ease-out, left .5s ease-out';
+						       		//image.style.transition = 'height .3s ease-out, left .5s ease-out';
+						       		
+						       		//$(image).stop().animate({transform:'scale(1)'}, 500);
+						       		/*
+						       		$(image).animate({
+						       			width: '600px',
+						       			height: '600px'
+						       		}, 1000)
+									*/
+									//image.style.msInterpolationMode = 'bicubic'
+						       		image.style.width = width;
+						       		image.style.height = height;
+					/*
+						       		if(image.id =='pic_' + jsonID_Lookup){
+						       			console.log('$$$$$$$$$$###############***********************')
+						       			//image.style.width = width*3;
+						       			//image.style.height = height*3;
+						       			image.style.width = '1600px';
+						       			image.style.height = '1600px';
+						       			//image.scale.x*3;
+						       		} else {
+						       			image.style.width = width;
+						       			image.style.height = height;
+						       		}
+					*/
+						   		//}
+							}
+						} // end of function
+
+						// table
+
+						for ( var i = 0; i < objects.length; i ++ ) {
+
+							var item = table[ i ];
+							var object = objects[ i ];
+
+							var object = new THREE.Object3D();
+							//object.position.x = ( item[ 3 ] * 160 ) - 1540;
+							//object.position.y = - ( item[ 4 ] * 200 ) + 1100;
+							
+							//object.position.x = ( i * 300 ) - 2500;
+							// need to do something like i (42 for ex) / 10, no remainder = 4 then * 300
+							//object.position.y = - ( i * 300 ) + 1000;
+
+							//object.position.x = (( i % 2 ) * 1050) - 2000;
+							//object.position.x = Math.floor( (i + 10) % 10 ) * 350 ) - 2000;
+							object.position.x = (( i % 10 ) * 650)- 3150;
+    						//object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 650 ) + 800;
+    						object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1250;
+
+    						object.name = objects[i].name;
+
+							targets.table.push( object );
+
+						}
+
+						console.log('TARGETS.table')
+						console.log(targets.table)
+
+						// lets pick a random picture
+						/*
+						need to go to table.targets, then pick a random one. when you get a random one, transition it to the center with a z value, wait for 5 seconds and add some metadata, and then go back to the original position
+						*/
+
+						function moveRandomPicture(){
+							var randomItem = targets.table[Math.floor(Math.random()*targets.table.length)];
+							console.log('RANDOM PICTURE')
+							console.log(randomItem)
+							//need to preserve the original position
+							//then need to change the position and save it
+							//then need to move it by below
+							//transform( targets.table, 2000 );
+							//then need to move it back to original position
+							//repeat
+							originalPosition = randomItem.position;
+							//new position
+							randomItem.position.x = -3150;
+							randomItem.position.y = -2000;
+							randomItem.scale.x = 5;
+							randomItem.scale.y = 5;
+							transform(randomItem, 2000)
+							// function which works -> transform( targets.table, 2000 );
+						}
+						setTimeout(function(){
+							//moveRandomPicture();
+							console.log('random pic function called')
+						}, 10000);
+
+						// *** new DANS table, move one pic at a time
+						var browserWidth = window.innerWidth;
+						var browserHeight = window.innerHeight;
+						//console.log(browserWidth)
+						//console.log(browserHeight)
+						
+
+
+				// need to wrap this in a function so it's a different 
+				// number between 1 and 100 every time
+				function bringRandomPictureOut(randomNumber){
+					//var tempRandomNumber = Math.floor(Math.random() * 100); 
+					//console.log(tempRandomNumber)
+
+					// need to empty the array
+					targets.tableDan.length = 0;
+
+					console.log(randomNumber)
+					// need global variable
+					var tempObjIdForTransition;
+					
+					for ( var i = 0; i < objects.length; i ++ ) {
+
+						//var item = tableDan[ i ];
+						var object = objects[ i ];	
+						//console.log('looping through object')
+						//console.log(object)				
+
+						var object = new THREE.Object3D();
+
+						object.name = objects[i].name;
+
+						//object.position.x = ( item[ 3 ] * 160 ) - 1540;
+						//object.position.y = - ( item[ 4 ] * 200 ) + 1100;
+						
+						//object.position.x = ( i * 300 ) - 2500;
+						// need to do something like i (42 for ex) / 10, no remainder = 4 then * 300
+						//object.position.y = - ( i * 300 ) + 1000;
+
+						//object.position.x = (( i % 2 ) * 1050) - 2000;
+						//object.position.x = Math.floor( (i + 10) % 10 ) * 350 ) - 2000;
+						if (i == randomNumber){
+							console.log('matching random number')
+							console.log(i)
+							console.log(object)
+							object.position.x = browserWidth/2 - 1400;
+    						object.position.y = browserHeight/2 - 300;
+    						//object.position.z = -1500;
+    						object.position.z = 0;
+
+    						// need to enlarge the picture
+    						var imgID = document.getElementById(object);
+    						console.log('ID ID ID')
+    						console.log(imgID) //******** i really need this
+    						// null
+    						console.log('HERE function IS WHERE THE LOOKUP IS DEFINED ******')
+    						console.log(object.name)
+    						console.log(object.id) // although this will match
+    						jsonID_Lookup = object.name; // is returning diff numbers
+    						tableID_Lookup = object.id;
+    						// 283
+    						tempObjIdForTransition = object.id;
+    						//object.style.width = '700px';
+					       	//object.style.height = '700px';
+					       	//object.width = '700px';
+					       	//object.height = '700px';
+
+					       	// lets try a hack and change the scale
+					       	//console.log('scaaaaale')
+					       	//console.log(object.scale)
+					       	//console.log(object.div)
+					       	//object.scale.x = object.scale.x * 5;
+					       	//object.scale.y = object.scale.y * 5;
+						} else {
+							object.position.x = (( i % 10 ) * 650)- 3150;
+    						//object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 650 ) + 800;
+    						//object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1250;
+    						object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1600;
+    						//object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+    						//object.position.z = -2000;
+    						object.position.z = -500;
+						}
+						// do this so it doesnt lag 10 seconds
+						changePictureSizeTwo('600px', '600px');
+						targets.tableDan.push( object );
+
+					}
+				} // end of bringRandomPictureOut(randomNumber)
+				
+
+				var jsonID_Lookup;
+    			var tableID_Lookup;
+
+
+				// NO IDEA WHY NEED THIS MAY WORK< NEED TO ADDRESS
+					var tempRandomNumber = Math.floor(Math.random() * 100); 
+					console.log(tempRandomNumber)
+					//console.log(randomNumber)
+					// need global variable
+					var tempObjIdForTransition;
+					
+					for ( var i = 0; i < objects.length; i ++ ) {
+
+						//var item = tableDan[ i ];
+						var object = objects[ i ];	
+						//console.log('looping through object')
+						//console.log(object)				
+
+						var object = new THREE.Object3D();
+
+						object.name = objects[i].name;
+						
+						//object.position.x = ( item[ 3 ] * 160 ) - 1540;
+						//object.position.y = - ( item[ 4 ] * 200 ) + 1100;
+						
+						//object.position.x = ( i * 300 ) - 2500;
+						// need to do something like i (42 for ex) / 10, no remainder = 4 then * 300
+						//object.position.y = - ( i * 300 ) + 1000;
+
+						//object.position.x = (( i % 2 ) * 1050) - 2000;
+						//object.position.x = Math.floor( (i + 10) % 10 ) * 350 ) - 2000;
+						if (i == tempRandomNumber){
+							console.log('matching random number')
+							console.log(i)
+							console.log(object)
+							object.position.x = browserWidth/2 - 1400;
+    						object.position.y = browserHeight/2 - 300;
+    						//object.position.z = -1500;
+    						object.position.z = 0;
+
+    						// need to enlarge the picture
+    						var imgID = document.getElementById(object);
+    						console.log('ID ID ID')
+    						console.log(imgID) //******** i really need this
+    						// null
+    						console.log('****** HERE IS WHERE THE LOOKUP IS DEFINED ******')
+    						console.log(object.name)
+    						console.log(object.id) // although this will match
+    						jsonID_Lookup = object.name;
+    						tableID_Lookup = object.id;
+    						// 283
+    						tempObjIdForTransition = object.id;
+    						//object.style.width = '700px';
+					       	//object.style.height = '700px';
+					       	//object.width = '700px';
+					       	//object.height = '700px';
+
+					       	// lets try a hack and change the scale
+					       	//console.log('scaaaaale')
+					       	//console.log(object.scale)
+					       	//console.log(object.div)
+					       	//object.scale.x = object.scale.x * 5;
+					       	//object.scale.y = object.scale.y * 5;
+						} else {
+							object.position.x = (( i % 10 ) * 650)- 3150;
+    						//object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 650 ) + 800;
+    						//object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1250;
+    						object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1600;
+    						//object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+    						//object.position.z = -2000;
+    						object.position.z = -500;
+						}
+						
+
+						targets.tableDan.push( object );
+
+					}
+
+					console.log(' Make sure that the lookup variables are global')
+					console.log(jsonID_Lookup)
+					console.log(tableID_Lookup)
+						
+
+						// go back to normal
+						for ( var i = 0; i < objects.length; i ++ ) {
+
+							var object = objects[ i ];
+
+							var object = new THREE.Object3D();
+							
+							object.position.x = (( i % 10 ) * 650)- 3150;
+	    					object.position.y = ( - ( Math.floor( i / 10 ) ) * 650 ) + 1600;
+	    					object.position.z = -500;
+
+							targets.tableDanBackToOriginal.push( object );
+
+						}
+
+
+						// sphere
+
+						var vector = new THREE.Vector3();
+
+						for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+							var object = objects[ i ];
+
+							var phi = Math.acos( -1 + ( 2 * i ) / l );
+							var theta = Math.sqrt( l * Math.PI ) * phi;
+
+							var object = new THREE.Object3D();
+
+							object.position.x = 1000 * Math.cos( theta*5 ) * Math.sin( phi );
+							object.position.y = 1000 * Math.sin( theta*5 ) * Math.sin( phi );
+							object.position.z = 1000 * Math.cos( phi );
+
+							vector.copy( object.position ).multiplyScalar( 2 );
+
+							object.lookAt( vector );
+
+							targets.sphere.push( object );
+
+						}
+
+						// helix
+
+						var vector = new THREE.Vector3();
+
+						for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+							var object = objects[ i ];
+
+							var phi = i * 0.175 + Math.PI;
+
+							var object = new THREE.Object3D();
+
+							object.position.x = 1100 * Math.sin( phi );
+							object.position.y = - ( i * 8 ) + 450;
+							object.position.z = 1100 * Math.cos( phi );
+
+							vector.copy( object.position );
+							vector.x *= 2;
+							vector.z *= 2;
+
+							object.lookAt( vector );
+
+							targets.helix.push( object );
+
+						}
+
+						// grid
+
+						for ( var i = 0; i < objects.length; i ++ ) {
+
+							var object = objects[ i ];
+
+							var object = new THREE.Object3D();
+
+							object.position.x = ( ( i % 5 ) * 400 ) - 800;
+							object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+							object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+
+							targets.grid.push( object );
+
+						}
+
+						//
+
+						renderer = new THREE.CSS3DRenderer();
+						renderer.setSize( window.innerWidth, window.innerHeight );
+						renderer.domElement.style.position = 'absolute';
+						renderer.domElement.style.top = 0;
+						document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+						//
+
+						controls = new THREE.TrackballControls( camera, renderer.domElement );
+						controls.rotateSpeed = 0.5;
+						controls.addEventListener( 'change', render );
+
+						var button = document.getElementById( 'table' );
+						button.addEventListener( 'click', function ( event ) {
+
+							changePictureSize('600px', '600px');
+							transform( targets.table, 2000 );
+
+						}, false );
+
+						var refreshTableData;
+
+						var button = document.getElementById( 'tableDan' );
+						button.addEventListener( 'click', function ( event ) {
+
+							//changePictureSize('600px', '600px');
+							changePictureSizeTwo('600px', '600px');
+
+							transform( targets.tableDan, 2000 );
+							
+							setTimeout(function(){
+								changePictureSizeBack('600px', '600px');
+								transform( targets.tableDanBackToOriginal, 2000 );
+							}, 5000);
+
+							refreshTableData = setInterval(function(){
+
+								//changePictureSizeTwo('600px', '600px');
+
+								console.log('TEMPY NUMBAAAA')
+								var tempyNumber = Math.floor(Math.random() * 100); 
+								console.log(tempyNumber)
+
+								bringRandomPictureOut(tempyNumber);
+								transform( targets.tableDan, 2000 );
+								setTimeout(function(){
+									// put changePictureBackToSize here
+									//changePictureSizeTwo('600px', '600px');
+									changePictureSizeBack('600px', '600px');
+									transform( targets.tableDanBackToOriginal, 2000 );
+								}, 5000);
+							}, 10000);
+							
+
+						}, false );
+
+						var button = document.getElementById( 'sphere' );
+						button.addEventListener( 'click', function ( event ) {
+
+							changePictureSize('200px', '200px');
+							transform( targets.sphere, 2000 );
+
+						}, false );
+
+						var button = document.getElementById( 'helix' );
+						button.addEventListener( 'click', function ( event ) {
+
+							window.clearInterval(refreshTableData);
+							window.clearInterval(refreshTableData);
+							$("#metadataUsername").empty();
+							$("#metadataText").empty();
+							$("#metadataLikes").empty();
+							changePictureSize('160px', '160px');
+							transform( targets.helix, 2000 );
+
+						}, false );
+
+						var button = document.getElementById( 'grid' );
+						button.addEventListener( 'click', function ( event ) {
+
+							changePictureSize('200px', '200px');
+							transform( targets.grid, 2000 );
+
+						}, false );
+
+						transform( targets.table, 5000 );
+
+						//
+
+						window.addEventListener( 'resize', onWindowResize, false );
+
+						//////////
+
+						/*
+						$( ".ponepics" ).hover(
+						  function() {
+						    $( this ).append( $( "<span> ***</span>" ) );
+						  }, function() {
+						    $( this ).find( "span:last" ).remove();
+						  }
+						);
+						 
+						$( ".element" ).hover(function() {
+							console.log('HOVERING WORKING')
+						  $( this ).fadeOut( 100 );
+						  $( this ).fadeIn( 500 );
+						});
+
+						$("img").mouseover(function(){
+							  //$("p").css("background-color","yellow");
+							  console.log('HOVEAAAA')
+							});
+						*/
+
+					}
+
+					function transform( targets, duration ) {
+
+						TWEEN.removeAll();
+
+						for ( var i = 0; i < objects.length; i ++ ) {
+
+							var object = objects[ i ];
+							var target = targets[ i ];
+
+							new TWEEN.Tween( object.position )
+								.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+								.easing( TWEEN.Easing.Exponential.InOut )
+								.start();
+
+							new TWEEN.Tween( object.rotation )
+								.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+								.easing( TWEEN.Easing.Exponential.InOut )
+								.start();
+
+						}
+
+						new TWEEN.Tween( this )
+							.to( {}, duration * 2 )
+							.onUpdate( render )
+							.start();
+
+					}
+
+					function onWindowResize() {
+
+						camera.aspect = window.innerWidth / window.innerHeight;
+						camera.updateProjectionMatrix();
+
+						renderer.setSize( window.innerWidth, window.innerHeight );
+
+					}
+
+					function animate() {
+
+						requestAnimationFrame( animate );
+
+						TWEEN.update();
+						controls.update();
+
+					}
+
+					function render() {
+
+						renderer.render( scene, camera );
+
+					}
+		      	//processingInstance.drawBarChart(pone)
+		      	//renderChartAfterData()
+		    },
+		    error: function(jqXHR, textStatus, errorThrown){
+		      	console.log('ERROR')
+		    }
+		}) // end of ajax call
+	//} // end of getData()
+
+
+		</script>
+	</body>
+</html>
